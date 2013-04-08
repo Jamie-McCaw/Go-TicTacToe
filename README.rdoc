@@ -1,4 +1,8 @@
-#Tic Tac Toe in Go
+== Tic Tac Toe in Go
+
+== Testing the program
 
 To run test use: go test -v
+
+== Running the program
 to run the game so far use: go run ttt.go
