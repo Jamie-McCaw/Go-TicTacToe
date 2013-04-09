@@ -1,10 +1,9 @@
 package main
 
-import "tic-tac-toe/ttt"
+import (
+    "tic-tac-toe/tictactoe"
+)
 
 func main() {
-	ttt.OutputGreeting()
-	ttt.OutputBoard()
-	ttt.OutputPrompt()
+    tictactoe.RunGame()
 }
-
