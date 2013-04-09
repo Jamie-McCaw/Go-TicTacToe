@@ -1,8 +1,8 @@
 package tictactoe
 
 import (
-	"testing"
 	"github.com/stretchrcom/testify/assert"
+	"testing"
 )
 
 func TestMakeBoard(t *testing.T) {
@@ -67,7 +67,7 @@ func TestGameisWonByPlayer(t *testing.T) {
 }
 
 func TestGameIsWonFalse(t *testing.T) {
-	t.Log("Returns false if the game is not won") 
+	t.Log("Returns false if the game is not won")
 	PopulateNonWinningBoard()
 	assert.False(t, GameIsWon())
 	ClearBoard()
