@@ -62,3 +62,12 @@ func ClearBoard() {
 	board[7] = 56
 	board[8] = 57
 }
+
+var mockboard []byte
+
+func OneMoveTestBoard() []byte {
+	mockboard = make([]byte, boardSize)
+	PopulateBoard(mockboard)
+	board[5] = playerMark
+	return board
+}
