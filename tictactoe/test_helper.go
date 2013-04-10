@@ -2,16 +2,16 @@ package tictactoe
 
 func FakeBoard() []byte {
 	board = make([]byte, 9)
-    for i := range board {
-        board[i] = '1' + byte(i)
-    }
-    return board
+	for i := range board {
+		board[i] = '1' + byte(i)
+	}
+	return board
 }
 
 func FakePopulatedBoard() {
 	board = MakeBoard()
 	PopulateBoard(board)
-} 
+}
 
 var Row = []int{0, 1, 2}
 

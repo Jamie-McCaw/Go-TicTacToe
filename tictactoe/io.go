@@ -1,8 +1,8 @@
 package tictactoe
 
 import (
-	"fmt"
 	"bufio"
+	"fmt"
 	"os"
 	"regexp"
 )
@@ -10,7 +10,7 @@ import (
 var input = bufio.NewReader(os.Stdin)
 
 func PrintBoard() {
-    fmt.Printf("%s\n%s\n%s\n", board[0:3], board[3:6], board[6:9])
+	fmt.Printf("%s\n%s\n%s\n", board[0:3], board[3:6], board[6:9])
 }
 
 func PrintPrompt() {
@@ -34,12 +34,12 @@ func PrintInvalidMove() {
 }
 
 func ValidateInput(input string) bool {
-  inputMatch, _ := regexp.MatchString("^[1-9]$", input)
-  return inputMatch
+	inputMatch, _ := regexp.MatchString("^[1-9]$", input)
+	return inputMatch
 }
 
 func GetInput() *string {
-  var input string
-  fmt.Scan(&input)
-  return &input
+	var input string
+	fmt.Scan(&input)
+	return &input
 }

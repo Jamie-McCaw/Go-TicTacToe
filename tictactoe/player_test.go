@@ -1,9 +1,9 @@
 package tictactoe
 
 import (
+	"github.com/stretchrcom/testify/assert"
 	"os"
-  "testing"
-  "github.com/stretchrcom/testify/assert"
+	"testing"
 )
 
 func TestPlayerTurnGoodMove(t *testing.T) {

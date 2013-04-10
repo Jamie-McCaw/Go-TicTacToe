@@ -3,22 +3,23 @@ package tictactoe
 import ()
 
 const boardSize = 9
+
 var board []byte
 var playerMark, computerMark byte = 'X', 'O'
 var winningMoves = [][]int{
-    {0, 1, 2},
-    {3, 4, 5},
-    {6, 7, 8},
-    {0, 3, 6},
-    {1, 4, 7},
-    {2, 5, 8},
-    {0, 4, 8},
-    {2, 4, 6},
+	{0, 1, 2},
+	{3, 4, 5},
+	{6, 7, 8},
+	{0, 3, 6},
+	{1, 4, 7},
+	{2, 5, 8},
+	{0, 4, 8},
+	{2, 4, 6},
 }
 
 func MakeBoard() []byte {
-    board = make([]byte, boardSize)
-    return board
+	board = make([]byte, boardSize)
+	return board
 }
 
 func MoveAvailable(playermove string) bool {
@@ -26,9 +27,9 @@ func MoveAvailable(playermove string) bool {
 }
 
 func PopulateBoard(board []byte) {
-	  for cell := range board {
- 	    board[cell] = '1' + byte(cell)
- 	}
+	for cell := range board {
+		board[cell] = '1' + byte(cell)
+	}
 }
 
 func ThreeCellsMatch(list []int) bool {
@@ -41,26 +42,26 @@ func ComputerWon(list []int) bool {
 
 func GameIsWon() bool {
 	for _, winningMove := range winningMoves {
-        if ThreeCellsMatch(winningMove) {
-            PrintBoard()
-            if ComputerWon(winningMove) {
-            	PrintWinningMessage(computerMark)   
-            } else {
-                PrintWinningMessage(playerMark)
-            }
-            return true 
-        } 
-    }
-    return false
+		if ThreeCellsMatch(winningMove) {
+			PrintBoard()
+			if ComputerWon(winningMove) {
+				PrintWinningMessage(computerMark)
+			} else {
+				PrintWinningMessage(playerMark)
+			}
+			return true
+		}
+	}
+	return false
 }
 
 func OpenSquares() bool {
 	for i, square := range board {
-        if square == '1'+byte(i) {
-            return true
-        }
-    }
-    return false
+		if square == '1'+byte(i) {
+			return true
+		}
+	}
+	return false
 }
 
 func GameOver() bool {
@@ -71,4 +72,4 @@ func GameOver() bool {
 	}
 	PrintTieGame()
 	return true
-} 
+}
