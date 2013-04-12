@@ -4,8 +4,7 @@ Unbeatable Tic Tac Toe in Golang written for your enjoyment
 
 Set up Go to run the game and test
 ----------------------------------
-To install Go:
-You can go to: [Install Instructions](http://golang.org/doc/install)
+To install Go, you can go to: [Install Instructions](http://golang.org/doc/install)
 	
 OR
 
@@ -17,7 +16,7 @@ To install Testify:
 
 type:
 
-	"go get github.com/stretchrcom/testify"
+	go get github.com/stretchrcom/testify
 
 Testing the program
 -------------------
@@ -37,4 +36,4 @@ From the Go-TicTacToe Directory
 
 type:
 
-	"go run ttt.go"
+	go run ttt.go
