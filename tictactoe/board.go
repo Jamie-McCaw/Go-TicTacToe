@@ -1,9 +1,12 @@
 package tictactoe
 
-import ()
+import (
+	"strconv"
+)
 
 const boardSize = 9
 
+var WinningPlayer byte
 var board []byte
 var playerMark, computerMark byte = 'X', 'O'
 var winningMoves = [][]int{
@@ -40,19 +43,26 @@ func ComputerWon(list []int) bool {
 	return board[list[0]] == computerMark
 }
 
+func WhoWon(winningMove []int) byte {
+	if ComputerWon(winningMove) {
+		return computerMark
+	}
+	return playerMark
+}
+
 func GameIsWon() bool {
 	for _, winningMove := range winningMoves {
 		if ThreeCellsMatch(winningMove) {
-			PrintBoard()
-			if ComputerWon(winningMove) {
-				PrintWinningMessage(computerMark)
-			} else {
-				PrintWinningMessage(playerMark)
-			}
+			WinningPlayer = WhoWon(winningMove)
 			return true
 		}
 	}
 	return false
+}
+
+func PlaceMove(move string, piece byte) {
+	x, _ := strconv.Atoi(move)
+	board[x-1] = piece
 }
 
 func OpenSquares() bool {
@@ -64,12 +74,31 @@ func OpenSquares() bool {
 	return false
 }
 
-func GameOver() bool {
-	if GameIsWon() {
-		return true
-	} else if OpenSquares() {
+func Tie() bool {
+	if OpenSquares() {
 		return false
 	}
-	PrintTieGame()
 	return true
+}
+
+func GameOver() bool {
+	if GameIsWon() || Tie() {
+		return true
+	}
+	return false
+}
+
+func OpenMoves() []int {
+	openSpaces := []int{}
+
+	for index, space := range board {
+		if SpaceIsNotTaken(space) {
+			openSpaces = append(openSpaces, index)
+		}
+	}
+	return openSpaces
+}
+
+func SpaceIsNotTaken(space byte) bool {
+	return space != playerMark && space != computerMark
 }

@@ -38,6 +38,15 @@ func ValidateInput(input string) bool {
 	return inputMatch
 }
 
+func PrintGameEnd() {
+	PrintBoard()
+	if Tie() {
+		PrintTieGame()
+	} else {
+		PrintWinningMessage(WinningPlayer)
+	}
+}
+
 func GetInput() *string {
 	var input string
 	fmt.Scan(&input)

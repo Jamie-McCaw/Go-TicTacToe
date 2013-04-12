@@ -21,6 +21,24 @@ func TestValidateInputForFalseAlso(t *testing.T) {
 	assert.False(t, ValidateInput("10"))
 }
 
+func TestPlaceMovePlayer(t *testing.T) {
+	t.Log("Places a move on the board")
+	FakeBoard()
+	mockboard[0] = playerMark
+	PlaceMove("1", playerMark)
+	assert.Equal(t, board, mockboard)
+	ClearBoard()
+}
+
+func TestPlaceMoveComputer(t *testing.T) {
+	t.Log("Places a move on the board")
+	FakeBoard()
+	mockboard[0] = computerMark
+	PlaceMove("1", computerMark)
+	assert.Equal(t, board, mockboard)
+	ClearBoard()
+}
+
 func TestGetInput(t *testing.T) {
 	read, write, _ := os.Pipe()
 	oldStdin := os.Stdin

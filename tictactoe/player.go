@@ -1,8 +1,6 @@
 package tictactoe
 
-import (
-	"strconv"
-)
+import ()
 
 func PlayerTurn() {
 	PrintBoard()
@@ -13,8 +11,7 @@ func PlayerTurn() {
 		PlayerTurn()
 	} else {
 		if MoveAvailable(*playerMove) {
-			x, _ := strconv.Atoi(*playerMove)
-			board[x-1] = playerMark
+			PlaceMove(*playerMove, playerMark)
 		} else {
 			PrintInvalidMove()
 			PlayerTurn()

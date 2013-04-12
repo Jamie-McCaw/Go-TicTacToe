@@ -1,11 +1,11 @@
 package tictactoe
 
 func FakeBoard() []byte {
-	board = make([]byte, 9)
+	mockboard = make([]byte, 9)
 	for i := range board {
-		board[i] = '1' + byte(i)
+		mockboard[i] = '1' + byte(i)
 	}
-	return board
+	return mockboard
 }
 
 func FakePopulatedBoard() {
@@ -13,18 +13,16 @@ func FakePopulatedBoard() {
 	PopulateBoard(board)
 }
 
+var mockboard []byte
+var FakeOpenSpacesEmpty = []int{0, 1, 2, 3, 4, 5, 6, 7, 8}
+var FakeOpenSpacesNotEmpty = []int{2, 3, 5, 6, 8}
+
 var Row = []int{0, 1, 2}
 
 func PutComputerInBoard() {
-	board[0] = computerMark
-	board[1] = computerMark
-	board[2] = computerMark
-	board[3] = computerMark
-	board[4] = computerMark
-	board[5] = computerMark
-	board[6] = computerMark
-	board[7] = computerMark
-	board[8] = computerMark
+	for cell := range board {
+		board[cell] = computerMark
+	}
 }
 
 func TieGame() {
@@ -52,22 +50,54 @@ func PopulateNonWinningBoard() {
 }
 
 func ClearBoard() {
-	board[0] = 49
-	board[1] = 50
-	board[2] = 51
-	board[3] = 52
-	board[4] = 53
-	board[5] = 54
-	board[6] = 55
-	board[7] = 56
-	board[8] = 57
+	for cell := range board {
+		board[cell] = '1' + byte(cell)
+	}
+	for cell := range mockboard {
+		mockboard[cell] = '1' + byte(cell)
+	}
 }
 
-var mockboard []byte
+func MakeMoveTestBoard() {
+	board[0] = playerMark
+	board[5] = computerMark
+}
+
+func MakeBlockingMove() []byte {
+	mockboard = make([]byte, boardSize)
+	PopulateBoard(mockboard)
+	mockboard[0] = playerMark
+	mockboard[1] = playerMark
+	mockboard[4] = computerMark
+	return board
+}
 
 func OneMoveTestBoard() []byte {
 	mockboard = make([]byte, boardSize)
 	PopulateBoard(mockboard)
-	board[5] = playerMark
+	mockboard[0] = playerMark
+	mockboard[4] = computerMark
+	return board
+}
+
+func MakesWinningMove() []byte {
+	mockboard = make([]byte, boardSize)
+	PopulateBoard(mockboard)
+	mockboard[0] = computerMark
+	mockboard[1] = computerMark
+	mockboard[3] = playerMark
+	mockboard[5] = playerMark
+	mockboard[7] = playerMark
+	return board
+}
+
+func MakesWinningMoveLateGame() []byte {
+	mockboard = make([]byte, boardSize)
+	PopulateBoard(mockboard)
+	mockboard[7] = computerMark
+	mockboard[2] = computerMark
+	mockboard[1] = playerMark
+	mockboard[3] = playerMark
+	mockboard[5] = playerMark
 	return board
 }

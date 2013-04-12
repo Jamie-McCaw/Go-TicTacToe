@@ -105,3 +105,44 @@ func TestMoveAvailableFalse(t *testing.T) {
 	assert.False(t, MoveAvailable("1"))
 	ClearBoard()
 }
+
+func TestWhoWonForComputer(t *testing.T) {
+	t.Log("Returns computerMark for a computer win.")
+	PutComputerInBoard()
+	assert.Equal(t, WhoWon(Row), computerMark)
+	ClearBoard()
+}
+
+func TestWhoWonForPlayer(t *testing.T) {
+	t.Log("Returns playerMark for a player win.")
+	PutPlayerInBoard()
+	assert.Equal(t, WhoWon(Row), playerMark)
+	ClearBoard()
+}
+
+func TestOpenMovesEmptyBoard(t *testing.T) {
+	t.Log("Returns a list of openspaces")
+	assert.Equal(t, OpenMoves(), FakeOpenSpacesEmpty)
+}
+
+func TestOpenMovesPopBoard(t *testing.T) {
+	t.Log("Returns a smaller list of openspaces")
+	PlaceMove("1", playerMark)
+	PlaceMove("2", computerMark)
+	PlaceMove("5", playerMark)
+	PlaceMove("8", computerMark)
+	assert.Equal(t, OpenMoves(), FakeOpenSpacesNotEmpty)
+	ClearBoard()
+}
+
+func TestSpaceIsNotTakenTrue(t *testing.T) {
+	t.Log("Returns true if the space is not taken")
+	assert.True(t, SpaceIsNotTaken(byte('1')))
+}
+
+func TestSpaceIsNotTakenFalse(t *testing.T) {
+	t.Log("Returns false if the space is taken")
+	PlaceMove("1", playerMark)
+	assert.False(t, SpaceIsNotTaken(playerMark))
+	ClearBoard()
+}
