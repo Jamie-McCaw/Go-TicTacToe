@@ -1,7 +1,7 @@
 package main
 
 import (
-	"tic-tac-toe/tictactoe"
+	"./tictactoe"
 )
 
 func main() {

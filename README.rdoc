@@ -1,8 +1,0 @@
-== Tic Tac Toe in Go
-Unbeatable Tic Tac Toe in Golang written for your enjoyment
-
-== Testing the program
-To run test use:  go test -v
-
-== Running the program
-To run the game so far use:  go run ttt.go
