@@ -26,6 +26,8 @@ From the Go-TicTacToe/tictactoe Directory
 
 type:  
 
+	cd tictactoe
+
 	go test -v
 
 Running the program
