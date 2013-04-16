@@ -37,6 +37,17 @@ func TieGame() {
 	board[8] = playerMark
 }
 
+func RunGameTestBoard() {
+	board[0] = computerMark
+	board[1] = playerMark
+	board[2] = computerMark
+	board[3] = computerMark
+	board[4] = playerMark
+	board[5] = playerMark
+	board[7] = computerMark
+	board[8] = playerMark
+}
+
 func PutPlayerInBoard() {
 	board[0] = playerMark
 	board[1] = playerMark
@@ -99,5 +110,19 @@ func MakesWinningMoveLateGame() []byte {
 	mockboard[1] = playerMark
 	mockboard[3] = playerMark
 	mockboard[5] = playerMark
+	return board
+}
+
+func RunGameMockBoard() []byte {
+	mockboard = make([]byte, boardSize)
+	PopulateBoard(mockboard)
+	mockboard[0] = computerMark
+	mockboard[1] = playerMark
+	mockboard[2] = computerMark
+	mockboard[3] = computerMark
+	mockboard[4] = playerMark
+	mockboard[5] = playerMark
+	mockboard[7] = computerMark
+	mockboard[8] = playerMark
 	return board
 }
