@@ -16,8 +16,8 @@ func TestRunGame(t *testing.T) {
 	defer func() {
 		os.Stdin = oldStdin
 	}()
-	testString := "7"
-	write.WriteString(testString)
+	MockInput := "7"
+	write.WriteString(MockInput)
 	write.Close()
 	t.Log("Runs through RunGame and finishes the game")
 	PlayerTurn()

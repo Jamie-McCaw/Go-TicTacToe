@@ -46,8 +46,8 @@ func TestGetInput(t *testing.T) {
 	defer func() {
 		os.Stdin = oldStdin
 	}()
-	testString := "7"
-	write.WriteString(testString)
+	MockInput := "7"
+	write.WriteString(MockInput)
 	write.Close()
 	t.Log("GetInput recieves 7 and passes it")
 	assert.Equal(t, *GetInput(), "7")

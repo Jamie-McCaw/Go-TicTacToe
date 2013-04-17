@@ -13,8 +13,8 @@ func TestPlayerTurnGoodMove(t *testing.T) {
 	defer func() {
 		os.Stdin = oldStdin
 	}()
-	testString := "6"
-	write.WriteString(testString)
+	MockInput := "6"
+	write.WriteString(MockInput)
 	write.Close()
 	t.Log("Start the PlayersTurn and submit good value that gets placed on the board")
 	PlayerTurn()
